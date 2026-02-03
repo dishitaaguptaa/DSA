@@ -2,17 +2,17 @@ package Arrays.Easy;
 
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if (nums.length == 0)
-            return 0;
-
-        int unique = 1; // first element is always unique
-
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[unique - 1]) {
-                nums[unique] = nums[i];
-                unique++;
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                nums[i + 1] = nums[j];
+                i++;
             }
         }
-        return unique;
+        return i + 1;
     }
 }
+
+//Complexity - O(N)
+//Space Complexity - O(1)
+//This is two pointer approach
